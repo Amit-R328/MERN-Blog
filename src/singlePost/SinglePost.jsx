@@ -18,7 +18,7 @@ export default function SinglePost() {
                     <span className='singlePostAuthor'>Author: <b>Amit</b></span>
                     <span className='singlePostDate'>1 hour ago</span>
                 </div>
-                <p>
+                <p className='singlePostDesc'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corrupti voluptatem repellat accusamus pariatur assumenda a provident accusantium ipsam repudiandae odit asperiores inventore obcaecati, ex cum vitae placeat quisquam earum.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corrupti voluptatem repellat accusamus pariatur assumenda a provident accusantium ipsam repudiandae odit asperiores inventore obcaecati, ex cum vitae placeat quisquam earum.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corrupti voluptatem repellat accusamus pariatur assumenda a provident accusantium ipsam repudiandae odit asperiores inventore obcaecati, ex cum vitae placeat quisquam earum.
