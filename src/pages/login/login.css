@@ -1,0 +1,54 @@
+.login {
+    height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0.5)
+    ),
+     url('https://res.cloudinary.com/dcbbqlssh/image/upload/v1662529575/mern-blog/jess-bailey-q10VITrVYUM-unsplash_csug7j.jpg');
+    background-size: cover;
+}
+
+.loginTitle {
+    font-size: 50px;
+}
+
+.loginForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm > label {
+    margin: 10px 0;
+}
+
+.loginInput {
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+
+.loginButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.loginRegisterButton {
+    margin-top: 10px;
+    background-color: lightskyblue;
+    cursor: pointer;
+    border: none;
+    color:white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 189px;
+}
