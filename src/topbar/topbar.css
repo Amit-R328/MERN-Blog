@@ -1,3 +1,8 @@
+@font-face {
+    font-family: awesome;
+    src: url(../fonts/awesome/fontawesome-webfont.ttf); 
+}
+
 .top {
     width: 100%;
     height: 50px;
@@ -9,7 +14,8 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.topLeft,.topRight {
+.topLeft,
+.topRight {
     flex: 3;
     display: flex;
     align-items: center;
@@ -18,6 +24,12 @@
 
 .topCenter {
     flex: 6;
+}
+
+@media (max-width: 700px) {
+    .topCenter {
+        display: none;
+    }
 }
 
 .topImg {
@@ -54,4 +66,27 @@
     margin-right: 10px;
     color: #444;
     cursor: pointer;
+}
+
+.hamburger-icon {
+    display: none;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #444;
+    cursor: pointer;
+}
+
+.hamburger-icon::after {
+    content: '\f0c9';
+    font-family: awesome;
+    font-weight: 100;
+    font-size: rem(28px);
+    letter-spacing: rem(5px);
+}
+
+@media (max-width: 700px) {
+    .hamburger-icon {
+        display: block;
+    }
 }

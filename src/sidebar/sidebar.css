@@ -64,3 +64,47 @@
     margin-left: 10px;
     cursor: pointer;
 }
+
+@media (max-width: 850px) {
+    .sidebar {
+        flex: unset;
+    }
+
+    .sidebarItem > img {
+        width: 218px;
+    } 
+    
+    .sidebarSocial {
+        width: unset;
+    }
+}
+
+@media (max-width: 720px) {
+    .post {
+        width: 305px;
+    }
+
+    .sidebarItem > img {
+        width: 163px;
+    }    
+}
+
+@media (max-width: 650px){
+    .post {
+        width: 235px;
+    }
+}
+
+@media (max-width: 531px) {
+    .home {
+        flex-direction: column-reverse;
+    }
+
+    .sidebarItem > img {
+        width: 265px;
+    } 
+
+    .post {
+        width: 433px;
+    }
+}

@@ -61,3 +61,33 @@
     border-radius: 10px;
     object-fit: cover;
 }
+
+@media (max-width: 472px) {
+    .writeSubmit {
+        right: 10%;
+    }
+
+    .top {
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 360px) {
+    .writeSubmit {
+        right: 1%;
+    }
+
+    .writeImg {
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 330px) {
+    .writeSubmit {
+        right: -15%;
+    }
+
+    .writeImg {
+        margin-left: 108px;
+    }
+}
