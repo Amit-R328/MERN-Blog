@@ -7,9 +7,11 @@ import Write from "./pages/write/Write";
 import TopBar from "./topbar/TopBar";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import BurgerMenu from "./burgerMenu/BurgerMenu";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 function App() {
-  const user = false;
+  const {user} = useContext(Context)
   return (
     <div className="app">
       <Router>

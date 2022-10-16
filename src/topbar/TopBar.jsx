@@ -1,16 +1,21 @@
 import BurgerMenu from '../burgerMenu/BurgerMenu'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from "../../src/context/Context"
 import './topbar.css'
 
 export default function TopBar() {
-  const user = false
+  const {user, dispatch} = useContext(Context)
   const [isSideMenu, setSideMenu] = useState(false)
   const menuRef = useRef(null)
 
   useEffect(() => {
     document.addEventListener("click", handleSideClickOutside)
   }, [isSideMenu])
+
+  const handleLogout = () => {
+    dispatch({type:"LOGOUT"})
+  }
 
   const handleSideClickOutside = (e) => {
     if (menuRef.current && isSideMenu && !menuRef.current.contains(e.target)) onToggleSideMenu()
@@ -44,7 +49,7 @@ export default function TopBar() {
             <li className='topListItem'><Link to="/" className='link'>ABOUT</Link></li>
             <li className='topListItem'><Link to="/" className='link'>CONTACT</Link></li>
             <li className='topListItem'><Link to="/write" className='link'>WRITE</Link></li>
-            <li className='topListItem'><Link to="/" className='link'>{user && "LOGOUT"}</Link></li>
+            <li className='topListItem' onClick={handleLogout}>{user && "LOGOUT"}</li>
           </ul>
         </div>
         <div className="topRight">
