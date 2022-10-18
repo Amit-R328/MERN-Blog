@@ -1,14 +1,25 @@
 import { useState } from 'react'
 import './write.css'
 import axios from 'axios'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Context } from '../../context/Context'
+import { MultiSelect } from 'react-multi-select-component'
 
 export default function Write() {
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
   const [file, setFile] = useState(null)
+  const [cats, setCats] = useState([])
+  const [selected, setSelected] = useState([])
   const { user } = useContext(Context)
+
+  useEffect(() => {
+    const getCats = async () => {
+      const res = await axios.get("/categories")
+      setCats(res.data)
+    }
+    getCats()
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,21 +27,22 @@ export default function Write() {
       username: user.username,
       title,
       desc,
+      categories: selected.map(s => {return {name: s.value}}),
     };
     if (file) {
-      const data =new FormData();
+      const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
       newPost.photo = filename;
       try {
         await axios.post("/upload", data);
-      } catch (err) {}
+      } catch (err) { }
     }
     try {
       const res = await axios.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
@@ -44,6 +56,12 @@ export default function Write() {
       )}
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className="writeFormGroup">
+        <MultiSelect
+          options={cats.map(c => { return { label: c.name, value: c.name } })}
+          value={selected}
+          onChange={setSelected}
+          hasSelectAll={false}
+        />
           <label htmlFor='fileInput'>
             <i className="writeIcon fa-solid fa-plus"></i>
           </label>

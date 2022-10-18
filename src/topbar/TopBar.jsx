@@ -5,7 +5,8 @@ import { Context } from "../../src/context/Context"
 import './topbar.css'
 
 export default function TopBar() {
-  const {user, dispatch} = useContext(Context)
+  const PF = "http://localhost:9000/images/"
+  const { user, dispatch } = useContext(Context)
   const [isSideMenu, setSideMenu] = useState(false)
   const menuRef = useRef(null)
 
@@ -14,7 +15,7 @@ export default function TopBar() {
   }, [isSideMenu])
 
   const handleLogout = () => {
-    dispatch({type:"LOGOUT"})
+    dispatch({ type: "LOGOUT" })
   }
 
   const handleSideClickOutside = (e) => {
@@ -31,11 +32,11 @@ export default function TopBar() {
     <div>
       <div className="top">
         <div className="topLeft">
-          <div className="side-menu">
+          {/* <div className="side-menu">
             <button ref={menuRef} onClick={onToggleSideMenu} className={`hamburger-icon`}>
               {isSideMenu && <BurgerMenu menuOpen={isSideMenu} closeMenu={onToggleSideMenu} />}
-            </button>
-          </div>
+            </button> */}
+          {/* </div> */}
           <i className="topIcon fa-brands fa-square-facebook"></i>
           <i className="topIcon fa-brands fa-square-twitter"></i>
           <i className="topIcon fa-brands fa-square-pinterest"></i>
@@ -46,19 +47,27 @@ export default function TopBar() {
             <li className='topListItem'>
               <Link to="/" className='link'>HOME</Link>
             </li>
-            <li className='topListItem'><Link to="/" className='link'>ABOUT</Link></li>
-            <li className='topListItem'><Link to="/" className='link'>CONTACT</Link></li>
+            <li className='topListItem'><Link to="/about" className='link'>ABOUT</Link></li>
+            <li className='topListItem'><Link to="/contact" className='link'>CONTACT</Link></li>
             <li className='topListItem'><Link to="/write" className='link'>WRITE</Link></li>
             <li className='topListItem' onClick={handleLogout}>{user && "LOGOUT"}</li>
           </ul>
         </div>
         <div className="topRight">
           {user ? (
-            <img
-              className='topImg'
-              src='https://res.cloudinary.com/dcbbqlssh/image/upload/v1662395562/mern-blog/joanna-nix-walkup-h2pnXHMz8YM-unsplash_t7xu0m.jpg'
-              alt=''
-            />
+            <Link to="/settings">
+              {user.profilePic ? (
+                <img
+                    src={PF + user.profilePic}
+                    alt=''
+                    className='topImg'
+                />
+              ) : (<img
+                src='https://res.cloudinary.com/dcbbqlssh/image/upload/v1665976352/mern-blog/placeholder_yqjspx.jpg'
+                alt='placeholder'
+                className='topImg'
+              />)}
+            </Link>
           ) : (
             <ul className='topList'>
               <li className='topListItem'><Link to="/login" className='link'>LOGIN</Link></li>

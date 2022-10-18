@@ -1,0 +1,24 @@
+.comment {
+    padding: 15px;
+    border-radius: 10px;
+    gap: 15px;
+    animation: come-in 1s ease-in;
+    border: 1px solid lightcoral;
+    display: flex;
+}
+
+.commentHeader {
+    display: flex;
+    gap: 10px;
+}
+
+.commentor {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.commentPic {
+    height: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+}

@@ -1,0 +1,10 @@
+.about {
+    display: flex;
+}
+
+.aboutWrapper {
+    flex: 9;
+    padding: 20px;
+    font-family: "Varela Round", sans-serif;;
+    line-height: 28px;
+}

@@ -4,12 +4,15 @@
 
 .writeForm {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .writeFormGroup {
     margin-left: 150px;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .writeIcon {
@@ -23,6 +26,21 @@
     font-size: 20px;
     color: rgb(121, 118, 118);
     cursor: pointer;
+}
+
+.rmsc {
+    --rmsc-main: #4285f4;
+    --rmsc-hover: #f1f3f5;
+    --rmsc-selected: #e2e6ea;
+    --rmsc-border: #ccc;
+    --rmsc-gray: #aaa;
+    --rmsc-bg: #fff;
+    --rmsc-p: 10px; /* Spacing */
+    --rmsc-radius: 4px; /* Radius */
+    --rmsc-h: 38px; 
+    --rmsc-w: 50px;
+    width: 116px;
+    align-self: center;
 }
 
 .writeInput {

@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import BurgerMenu from "./burgerMenu/BurgerMenu";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   const {user} = useContext(Context)
@@ -16,9 +18,10 @@ function App() {
     <div className="app">
       <Router>
         <TopBar />
-        <BurgerMenu/>
         <Routes>
           <Route path="/" exact element={<Home></Home>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="/register" element={user ? <Home /> : <Register />} ></Route>
           <Route path="/login" element={user ? <Home /> : <Login />} ></Route>
           <Route path="/write" element={user ? <Write /> : <Register />} ></Route>
